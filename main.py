@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from app.routes import router
+from app.routes import router 
 
-app = FastAPI()
+app = FastAPI( title="API Mora")
 
-app.include_router(router) 
+app.include_router(router)  

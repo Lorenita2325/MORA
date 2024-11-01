@@ -9,7 +9,6 @@ from typing import List
 
 router = APIRouter()
 
-# Endpoints para clientes
 @router.get("/clientes/", response_model=List[Cliente])
 def get_clientes():
     conn = get_db_connection()
@@ -48,7 +47,6 @@ def create_cliente(cliente: ClienteCreate):
         cursor.close()
         conn.close()
 
-# Endpoints para productores
 @router.get("/productores/", response_model=List[Productor])
 def get_productores():
     conn = get_db_connection()
@@ -89,7 +87,6 @@ def create_productor(productor: ProductorCreate):
         cursor.close()
         conn.close()
 
-# Endpoints para inventarios
 @router.get("/inventarios/", response_model=List[Inventario])
 def get_inventarios():
     conn = get_db_connection()
@@ -128,7 +125,6 @@ def create_inventario(inventario: InventarioCreate):
         cursor.close()
         conn.close()
 
-# Endpoints para ventas
 @router.get("/ventas/", response_model=List[Venta])
 def get_ventas():
     conn = get_db_connection()
@@ -169,7 +165,6 @@ def create_venta(venta: VentaCreate):
         cursor.close()
         conn.close()
 
-# Endpoints para transportes
 @router.get("/transportes/", response_model=List[Transporte])
 def get_transportes():
     conn = get_db_connection()
@@ -208,7 +203,6 @@ def create_transporte(transporte: TransporteCreate):
         cursor.close()
         conn.close()
 
-# Endpoints para pagos
 @router.get("/pagos/", response_model=List[Pago])
 def get_pagos():
     conn = get_db_connection()

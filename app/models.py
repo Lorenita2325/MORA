@@ -2,7 +2,6 @@ from pydantic import BaseModel, Field, EmailStr
 from typing import Optional
 from datetime import date
 
-# Modelo para Clientes
 class ClienteCreate(BaseModel):
     nombre: str = Field(..., max_length=50, description="Nombre del cliente (campo requerido)")
     apellido: str = Field(..., max_length=50, description="Apellido del cliente (campo requerido)")
@@ -13,8 +12,6 @@ class ClienteCreate(BaseModel):
 class Cliente(ClienteCreate):
     id_cliente: int
 
-
-# Modelo para Productores
 class ProductorCreate(BaseModel):
     nombre: str = Field(..., max_length=100, description="Nombre del productor (campo requerido)")
     apellido: str = Field(..., max_length=100, description="Apellido del productor (campo requerido)")
@@ -28,8 +25,6 @@ class ProductorCreate(BaseModel):
 class Productor(ProductorCreate):
     id_productor: int
 
-
-# Modelo para Inventario
 class InventarioCreate(BaseModel):
     id_productor: int = Field(..., description="ID del productor asociado (campo requerido)")
     fecha_actualizacion: date = Field(..., description="Fecha de actualización del inventario")
@@ -38,8 +33,6 @@ class InventarioCreate(BaseModel):
 class Inventario(InventarioCreate):
     id_inventario: int
 
-
-# Modelo para Ventas
 class VentaCreate(BaseModel):
     id_productor: int = Field(..., description="ID del productor asociado (campo requerido)")
     fecha_venta: date = Field(..., description="Fecha de la venta")
@@ -51,8 +44,6 @@ class VentaCreate(BaseModel):
 class Venta(VentaCreate):
     id_venta: int
 
-
-# Modelo para Transportes
 class TransporteCreate(BaseModel):
     id_venta: int = Field(..., description="ID de la venta asociada (campo requerido)")
     fecha_envio: date = Field(..., description="Fecha del envío")
@@ -62,8 +53,6 @@ class TransporteCreate(BaseModel):
 class Transporte(TransporteCreate):
     id_transporte: int
 
-
-# Modelo para Pagos
 class PagoCreate(BaseModel):
     id_venta: int = Field(..., description="ID de la venta asociada (campo requerido)")
     fecha_pago: date = Field(..., description="Fecha del pago")

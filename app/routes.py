@@ -9,7 +9,6 @@ from typing import List
 
 router = APIRouter()
 
-# Endpoints para clientes
 @router.get("/clientes/", response_model=List[Cliente])
 def get_clientes():
     conn = get_db_connection()
@@ -49,7 +48,6 @@ def bulk_insert_clientes(clientes: List[ClienteCreate]):
         cursor.close()
         conn.close()
 
-# Endpoints para productores
 @router.get("/productores/", response_model=List[Productor])
 def get_productores():
     conn = get_db_connection()
@@ -91,7 +89,6 @@ def bulk_insert_productores(productores: List[ProductorCreate]):
         cursor.close()
         conn.close()
 
-# Endpoints para inventarios
 @router.get("/inventarios/", response_model=List[Inventario])
 def get_inventarios():
     conn = get_db_connection()
@@ -131,7 +128,6 @@ def bulk_insert_inventario(inventarios: List[InventarioCreate]):
         cursor.close()
         conn.close()
 
-# Endpoints para ventas
 @router.get("/ventas/", response_model=List[Venta])
 def get_ventas():
     conn = get_db_connection()
@@ -173,7 +169,6 @@ def bulk_insert_ventas(ventas: List[VentaCreate]):
         cursor.close()
         conn.close()
 
-# Endpoints para transportes
 @router.get("/transportes/", response_model=List[Transporte])
 def get_transportes():
     conn = get_db_connection()
@@ -213,7 +208,6 @@ def bulk_insert_transportes(transportes: List[TransporteCreate]):
         cursor.close()
         conn.close()
 
-# Endpoints para pagos
 @router.get("/pagos/", response_model=List[Pago])
 def get_pagos():
     conn = get_db_connection()
@@ -253,7 +247,6 @@ def bulk_insert_pagos(pagos: List[PagoCreate]):
         cursor.close()
         conn.close()
 
-# 1. Obtener el productor que ha vendido la mayor cantidad de kilos
 @router.get("/max_kilos_productor/")
 def max_kilos_productor():
     conn = get_db_connection()
@@ -275,7 +268,6 @@ def max_kilos_productor():
         cursor.close()
         conn.close()
 
-# 2. Promedio de kilos vendidos por productor
 @router.get("/avg_kilos_por_productor/")
 def avg_kilos_por_productor():
     conn = get_db_connection()
@@ -295,7 +287,6 @@ def avg_kilos_por_productor():
         cursor.close()
         conn.close()
 
-# 3. Cliente con la compra de mayor valor total
 @router.get("/cliente_max_compra/")
 def cliente_max_compra():
     conn = get_db_connection()
@@ -317,7 +308,6 @@ def cliente_max_compra():
         cursor.close()
         conn.close()
 
-# 4. Promedio del costo de transporte por empresa de transporte
 @router.get("/avg_costo_por_empresa/")
 def avg_costo_por_empresa():
     conn = get_db_connection()
@@ -336,7 +326,6 @@ def avg_costo_por_empresa():
         cursor.close()
         conn.close()
 
-# 5. Venta con el mínimo costo de transporte
 @router.get("/venta_min_transporte/")
 def venta_min_transporte():
     conn = get_db_connection()
@@ -358,7 +347,6 @@ def venta_min_transporte():
         cursor.close()
         conn.close()
 
-# 6. Total de ventas por cliente
 @router.get("/total_ventas_por_cliente/")
 def total_ventas_por_cliente():
     conn = get_db_connection()
@@ -378,7 +366,6 @@ def total_ventas_por_cliente():
         cursor.close()
         conn.close()
 
-# 7. Listar los inventarios con más de 100 kilos disponibles
 @router.get("/inventarios_mas_de_100_kilos/")
 def inventarios_mas_de_100_kilos():
     conn = get_db_connection()
@@ -396,7 +383,6 @@ def inventarios_mas_de_100_kilos():
         cursor.close()
         conn.close()
 
-# 8. Clientes que no han realizado ninguna compra (LEFT JOIN)
 @router.get("/clientes_sin_compras/")
 def clientes_sin_compras():
     conn = get_db_connection()
@@ -416,7 +402,6 @@ def clientes_sin_compras():
         cursor.close()
         conn.close()
 
-# 9. Ventas agrupadas por fecha de venta
 @router.get("/ventas_por_fecha/")
 def ventas_por_fecha():
     conn = get_db_connection()
@@ -435,7 +420,6 @@ def ventas_por_fecha():
         cursor.close()
         conn.close()
 
-# 10. Productor con el área de cultivo más grande
 @router.get("/max_area_cultivo/")
 def max_area_cultivo():
     conn = get_db_connection()
@@ -456,7 +440,6 @@ def max_area_cultivo():
         cursor.close()
         conn.close()
 
-# 11. Promedio de montos de pagos realizados
 @router.get("/avg_monto_pagos/")
 def avg_monto_pagos():
     conn = get_db_connection()
@@ -474,7 +457,6 @@ def avg_monto_pagos():
         cursor.close()
         conn.close()
 
-# 12. Número total de ventas por productor
 @router.get("/num_ventas_por_productor/")
 def num_ventas_por_productor():
     conn = get_db_connection()
@@ -494,7 +476,6 @@ def num_ventas_por_productor():
         cursor.close()
         conn.close()
 
-# 13. Clientes que han realizado compras con un total mayor al promedio de todas las compras
 @router.get("/clientes_compras_sobre_promedio/")
 def clientes_compras_sobre_promedio():
     conn = get_db_connection()
@@ -515,7 +496,6 @@ def clientes_compras_sobre_promedio():
         cursor.close()
         conn.close()
 
-# 14. Cantidad de kilos vendidos por tipo de cultivo
 @router.get("/kilos_por_tipo_cultivo/")
 def kilos_por_tipo_cultivo():
     conn = get_db_connection()
@@ -535,7 +515,6 @@ def kilos_por_tipo_cultivo():
         cursor.close()
         conn.close()
 
-# 15. Número total de transportes por empresa
 @router.get("/num_transportes_por_empresa/")
 def num_transportes_por_empresa():
     conn = get_db_connection()
